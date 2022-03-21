@@ -165,7 +165,7 @@ function ConfettiGenerator(params) {
                     ctx.restore();
                     break;
                 }
-            case 'svgd':
+            case 'svg':
                 {
                     ctx.save();
                     var image = new window.Image();
