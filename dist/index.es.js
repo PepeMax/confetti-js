@@ -106,6 +106,7 @@ function ConfettiGenerator(params) {
             y: appstate.start_from_edge ? (appstate.clock >= 0 ? -10 : parseFloat(appstate.height) + 10) : rand(appstate.height), //y-coordinate
             src: prop.src,
             text: prop.text,
+            font: prop.font,
             radius: rand(4) + 1, //radius
             size: prop.size,
             rotate: appstate.rotate,
@@ -181,10 +182,13 @@ function ConfettiGenerator(params) {
             case 'emoji':
                 {
                     ctx.save();
-                    var size = p.size || 15;
+                    var size = p.size || 0.2;
+                    size = size * 120
+                    var font = p.font || 'serif'
                     ctx.translate(p.x + size / 2, p.y + size / 2);
                     if (p.rotate)
                         ctx.rotate(p.rotation);
+                    ctx.font = size + "px " + font;
                     ctx.fillText(p.text, -15 * appstate.size, -5 * appstate.size);
                     ctx.restore();
                     break;
